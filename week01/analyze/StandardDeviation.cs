@@ -7,23 +7,26 @@
 using System.Diagnostics;
 public static class StandardDeviation {
     public static void Run() {
-        var numbers = new[] { 600, 470, 170, 430, 300, 456, 199, 578, 234, 400, 150, 630, 540, 230, 550, 240, 380, 560, 199, 499, 376, 586, 265, 476, 432, 390, 253, 197, 589, 456, 489, 298 };
+        var random = new Random();
+        var numbers = Enumerable.Range(0, 1000).Select(_ => random.Next(199, 601)).ToArray();
+        // var numbers = new[] { 600, 470, 170, 430, 300, 456, 199, 578, 234, 400, 150, 630, 540, 230, 550, 240, 380, 560, 199, 499, 376, 586, 265, 476, 432, 390, 253, 197, 589, 456, 489, 298 };
+
         // Console.WriteLine(StandardDeviation1(numbers)); // Should be 147.322 
         // double time1 = Time(() => StandardDeviation1(numbers), 10000);
         // Console.WriteLine($"StandardDeviation1: {time1:F4} ms");
-        var (time1, result1) = TimeAndResult(() => StandardDeviation1(numbers), 10000);
+        var (time1, result1) = TimeAndResult(() => StandardDeviation1(numbers), 100000);
         Console.WriteLine($"StandardDeviation1: {time1:F4} ms, Result: {result1:F6}");
 
         // Console.WriteLine(StandardDeviation2(numbers)); // Should be 147.322 
         // double time2 = Time(() => StandardDeviation2(numbers), 10000);
         // Console.WriteLine($"StandardDeviation2: {time2:F4} ms");
-        var result2 = TimeAndResult2(() => StandardDeviation2(numbers), 10000);
+        var result2 = TimeAndResult2(() => StandardDeviation2(numbers), 100000);
         Console.WriteLine($"StandardDeviation2: {result2.TimeMs:F4} ms, Result: {result2.Result:F6}");
 
         // Console.WriteLine(StandardDeviation3(numbers)); // Should be 147.322 
         // double time3 = Time(() => StandardDeviation3(numbers), 10000);
         // Console.WriteLine($"StandardDeviation3: {time3:F4} ms");
-        var result3 = TimeAndResult2(() => StandardDeviation3(numbers), 10000);
+        var result3 = TimeAndResult2(() => StandardDeviation3(numbers), 100000);
         Console.WriteLine($"StandardDeviation3: {result3.TimeMs:F4} ms, Result: {result3.Result:F6}");
     }
 
