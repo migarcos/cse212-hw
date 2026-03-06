@@ -8,7 +8,7 @@ using System.Diagnostics;
 public static class StandardDeviation {
     public static void Run() {
         var random = new Random();
-        var numbers = Enumerable.Range(0, 1000).Select(_ => random.Next(199, 601)).ToArray();
+        var numbers = Enumerable.Range(0, 10).Select(_ => random.Next(199, 601)).ToArray();
         // var numbers = new[] { 600, 470, 170, 430, 300, 456, 199, 578, 234, 400, 150, 630, 540, 230, 550, 240, 380, 560, 199, 499, 376, 586, 265, 476, 432, 390, 253, 197, 589, 456, 489, 298 };
 
         // Console.WriteLine(StandardDeviation1(numbers)); // Should be 147.322 
