@@ -1,3 +1,5 @@
+using System.Dynamic;
+
 public static class Arrays
 {
     /// <summary>
@@ -40,5 +42,20 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // declate a list to save the final values 
+        var start = new List<int> {};
+        // add the final range values from data
+        start.AddRange(data.GetRange(0, amount));
+        // declate a list to save the first values 
+        var end = new List<int> {};
+        // add the first range values from data
+        end.AddRange(data.GetRange(amount, data.Count - amount));
+        // clean the original list
+        data.Clear();
+        // add the lastest as first
+        data.AddRange(end);
+        // add the first range values as lastest
+        data.AddRange(start);        
     }
 }
