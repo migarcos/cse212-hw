@@ -46,16 +46,16 @@ public static class Arrays
         // declate a list to save the final values 
         var start = new List<int> {};
         // add the final range values from data
-        start.AddRange(data.GetRange(0, amount));
+        start.AddRange(data.GetRange(data.Count - amount, amount));
         // declate a list to save the first values 
         var end = new List<int> {};
         // add the first range values from data
-        end.AddRange(data.GetRange(amount, data.Count - amount));
+        end.AddRange(data.GetRange(0, data.Count - amount));
         // clean the original list
         data.Clear();
         // add the lastest as first
-        data.AddRange(end);
+        data.AddRange(start);
         // add the first range values as lastest
-        data.AddRange(start);        
+        data.AddRange(end);        
     }
 }
