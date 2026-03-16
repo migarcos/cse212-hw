@@ -26,7 +26,7 @@ public class PriorityQueueTests
 
     [TestMethod]
     // Scenario: Adding elements with same priority
-    // Expected Result: value1
+    // Expected Result: value2
     // Defect(s) Found: Dequeue the idx 3
     public void TestPriorityQueue_2()
     {
@@ -43,4 +43,21 @@ public class PriorityQueueTests
     }
 
     // Add more test cases as needed below.
+    [TestMethod]
+    // Scenario: Adding all elements with same priority
+    // Expected Result: value1
+    // Defect(s) Found: 
+    public void TestPriorityQueue_3()
+    {
+        var priorityQueue = new PriorityQueue();
+
+        priorityQueue.Enqueue("value1", 1);
+        priorityQueue.Enqueue("value2", 1);
+        priorityQueue.Enqueue("value3", 1);
+        priorityQueue.Enqueue("value4", 1);
+        
+        var result = priorityQueue.Dequeue();        
+
+        Assert.AreEqual("value1", result);
+    }
 }
