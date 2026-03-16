@@ -12,6 +12,7 @@ public class TakingTurnsQueueTests
     // run until the queue is empty
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
     // Defect(s) Found: 
+    // the lastet person added takes the 0 index, an move the rest places
     public void TestTakingTurnsQueue_FiniteRepetition()
     {
         var bob = new Person("Bob", 2);
@@ -24,7 +25,7 @@ public class TakingTurnsQueueTests
         players.AddPerson(bob.Name, bob.Turns);
         players.AddPerson(tim.Name, tim.Turns);
         players.AddPerson(sue.Name, sue.Turns);
-        // the lastet person added takes the 0 index, an move the others
+        
 
         int i = 0;
         while (players.Length > 0)
