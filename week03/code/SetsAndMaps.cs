@@ -55,6 +55,8 @@ public static class SetsAndMaps
         {
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
+            if (degrees.ContainsKey(fields[3])) degrees[fields[3]] ++;
+            else degrees[fields[3]] = 1;
         }        
         return degrees;
     }
