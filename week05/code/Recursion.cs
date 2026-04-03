@@ -37,8 +37,8 @@ public static class Recursion
     /// using the formula: len(letters)! / (len(letters) - size)!
     ///
     /// For example, if letters was [A,B,C] and size was 2 then
-    /// the following would the contents of the results array after the function ran: AB, AC, BA, BC, CA, CB (might be in 
-    /// a different order).
+    /// the following would the contents of the results array after the function ran:  
+    /// AB, AC, BA, BC, CA, CB (might be in a different order).
     ///
     /// You can assume that the size specified is always valid (between 1 
     /// and the length of the letters list).
@@ -46,6 +46,18 @@ public static class Recursion
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
         // TODO Start Problem 2
+        for (var i = 0; i < letters.Length; i++)
+        {
+            var lettersLeft = letters.Remove(i, 1);
+
+            if (word.Length < size)
+            {
+                PermutationsChoose(results, lettersLeft, size, word + letters[i]);
+            } else
+            {
+                results.Add(word);
+            }            
+        }
     }
 
     /// <summary>
