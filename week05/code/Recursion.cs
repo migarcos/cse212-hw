@@ -116,28 +116,57 @@ public static class Recursion
     public static decimal CountWaysToClimb(int s, Dictionary<int, decimal>? remember = null)
     {
         // if (remember == null)
-        remember = new Dictionary<int, decimal>();
+        //     remember = new Dictionary<int, decimal>();
 
-        // Base Cases
-        if (s == 0)
-            return 0;
-        if (s == 1)
-            return 1;
-        if (s == 2)
-            return 2;
-        if (s == 3)
-            return 4;
+        // // Base Cases
+        // if (s == 0)
+        //     return 0;
+        // if (s == 1)
+        //     return 1;
+        // if (s == 2)
+        //     return 2;
+        // if (s == 3)
+        //     return 4;
 
-        // TODO Start Problem 3
+        // // TODO Start Problem 3
+        // if (remember.ContainsKey(s))
+        //     return remember[s];
+
+        // // Solve using recursion
+        // decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+
+        // remember[s] = ways;
+
+        // return ways;
+
+        if (remember == null)
+            remember = new Dictionary<int, decimal>();
+
+        if (s == 0) return 0;
+        if (s == 1) return 1;
+        if (s == 2) return 2;
+        if (s == 3) return 4;
+
         if (remember.ContainsKey(s))
             return remember[s];
 
-        // Solve using recursion
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
+        decimal a = 1; 
+        decimal b = 2; 
+        decimal c = 4;
+        decimal current = 0;
 
-        remember[s] = ways;
+        for (int i = 4; i <= s; i++)
+        {
+            current = a + b + c;
+            a = b;
+            b = c;
+            c = current;
 
-        return ways;
+            if (!remember.ContainsKey(i))
+                remember[i] = current;
+        }
+
+        return current;
 
     }
 
