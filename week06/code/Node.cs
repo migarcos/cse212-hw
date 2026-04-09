@@ -14,6 +14,7 @@ public class Node
         // TODO Start Problem 1 - only allow unique values to be added to the tree
         if (value == Data)
             return;
+
         if (value < Data)
         {
             // Insert to the left
@@ -34,8 +35,24 @@ public class Node
 
     public bool Contains(int value)
     {
-        // TODO Start Problem 2
-        return false;
+        // TODO Start Problem 2 - search for a value in the tree
+        if (value == Data)
+            return true;
+        
+        if (value < Data)
+        {
+            if (Left is null)
+                return false;
+            else 
+                return Left.Contains(value);
+        }
+        else
+        {   
+            if (Right is null)
+                return false;
+            else 
+                return Right.Contains(value);
+        }
     }
 
     public int GetHeight()
