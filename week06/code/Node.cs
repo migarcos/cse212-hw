@@ -14,7 +14,6 @@ public class Node
         // TODO Start Problem 1 - only allow unique values to be added to the tree
         if (value == Data)
             return;
-            
         if (value < Data)
         {
             // Insert to the left
