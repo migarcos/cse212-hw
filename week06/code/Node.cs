@@ -61,30 +61,22 @@ public class Node
     {
         // return 0; // Replace this line with the correct return statement(s)
         // int Max;
-        int leftHeight;
-        if (Left == null)
-        {
-            leftHeight = 0;
-        }
-        else
-        {
-            leftHeight = Left.GetHeight();
-        }
 
-        int rightHeight;
-        if (Right == null)
-        {
-            rightHeight = 0;
-        }
-        else
-        {
-            rightHeight = Right.GetHeight();
-        }
+        // int leftHeight;
+        // if (Left == null)   leftHeight = 0;
+        // else    leftHeight = Left.GetHeight();
+        int leftHeight = (Left == null) ? 0 : Left.GetHeight();
+
+        // int rightHeight;
+        // if (Right == null)  rightHeight = 0;
+        // else    rightHeight = Right.GetHeight();
+        int rightHeight = (Right == null) ? 0 : Right.GetHeight();
+
         // if (leftHeight > rightHeight)  Max = leftHeight;
         // else Max = rightHeight;
-        int Max = (leftHeight > rightHeight) ? leftHeight : rightHeight;
+        // int Max = (leftHeight > rightHeight) ? leftHeight : rightHeight;
 
-        return 1 + Max;
-        // return 1 + Math.Max(leftHeight, rightHeight);
+        // return 1 + Max;
+        return 1 + Math.Max(leftHeight, rightHeight);
     }
 }
