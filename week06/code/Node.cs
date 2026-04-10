@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Node
 {
     public int Data { get; set; }
@@ -57,7 +59,32 @@ public class Node
 
     public int GetHeight()
     {
-        // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        // return 0; // Replace this line with the correct return statement(s)
+        // int Max;
+        int leftHeight;
+        if (Left == null)
+        {
+            leftHeight = 0;
+        }
+        else
+        {
+            leftHeight = Left.GetHeight();
+        }
+
+        int rightHeight;
+        if (Right == null)
+        {
+            rightHeight = 0;
+        }
+        else
+        {
+            rightHeight = Right.GetHeight();
+        }
+        // if (leftHeight > rightHeight)  Max = leftHeight;
+        // else Max = rightHeight;
+        int Max = (leftHeight > rightHeight) ? leftHeight : rightHeight;
+
+        return 1 + Max;
+        // return 1 + Math.Max(leftHeight, rightHeight);
     }
 }
