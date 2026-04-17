@@ -61,7 +61,9 @@ public class Node
     {
         // return 0; // Replace this line with the correct return statement(s)
         // int Max;
-
+        if (Left == null && Right == null)
+            return 1;
+            
         // int leftHeight;
         // if (Left == null)   leftHeight = 0;
         // else    leftHeight = Left.GetHeight();
